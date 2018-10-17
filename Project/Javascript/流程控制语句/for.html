@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>for循环 隔行变色</title>
+<style type="text/css">
+	.hd{
+       color:white;
+       background:green;
+	}
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+
+	document.write('<table border="1">');
+
+	var rows = prompt('请输入行数');
+	var clos = prompt('请输入列数');
+
+	//i 代表 行数
+	//j 代表 列数
+	for( var i = 1; i <= rows; i++ ){
+		//通过判断奇偶数来判断隔行变色
+		if( i%2!=0 ){
+			//console.log(i)
+			document.write('<tr class="hd">');
+		}else{
+			document.write('<tr>');
+		}
+
+		for(var j = 1; j <= clos; j++){
+			document.write('<td>'+i+'格子'+j+'</td>');
+		}
+
+		document.write('</tr>');
+	}
+
+	document.write('</table>');
+
+	var result = 0;
+
+	for (var i = 1; i <= 9; i++) {
+		for (var j = 1; j <= i; j++) {
+			result = j * i;
+			document.write(j+'×'+i+'='+result+'&nbsp;')
+		}
+
+		document.write('br')
+	}
+
+</script>
+
+</body>

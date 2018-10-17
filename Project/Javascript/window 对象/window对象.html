@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>window对象</title>
+</head>
+<body>
+
+
+</body>
+</html>
+<script type="text/javascript">
+	
+菜鸟笔记--window对象
+
+所有浏览器都支持 window 对象。它表示浏览器窗口。
+
+所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员。
+
+全局变量是 window 对象的属性。
+
+全局函数是 window 对象的方法。
+
+一 navigator对象
+
+1. appCodeName 返回浏览器的代码名
+
+2. appName 返回浏览器的名称
+
+3. appVersion 返回浏览器的平台和版本名称
+
+4. cookieEnaabled 返回运行浏览器的操作系统平台
+
+5. platform 返回浏览器的操作系统平台
+
+6. userAgent 返回由客户机发送服务器的user-agent头部的值
+
+二 screen 显示器对象
+
+1. availHeight 返回显示屏幕的可用高度
+
+2. availWihth 返回显示屏幕的可用宽度
+
+//screen.availWidth - 可用的屏幕宽度
+//screen.availHeight - 可用的屏幕高度
+
+document.write('可用的屏幕宽度'+ screen.availWidth);
+document.write('可用的屏幕高度'+ screen.availHeight);
+
+3. height 返回屏幕的像素高度
+
+4. width 返回屏幕的像素宽度
+
+5. colorDepth 返回屏幕颜色的位数
+
+三 history 历史对象
+
+1. back() 返回前一个URL
+
+2. forword() 返回下一个URL
+
+3. go() 返回某个具体页面
+
+四 location 位置方法
+
+1. 属性
+
+(1) hash 设置或返回从井号(#) 开始的URL
+
+(2) host 设置或返回主机名和当前URL的端口号
+
+location.host
+"www.w3school.com.cn"
+
+(3) hostname 设置返回当前URL的主机名
+
+(4) href 设置或返回完整带的URL
+
+location.href
+"http://www.w3school.com.cn/js/js_window_location.asp"
+
+(5) pathname 设置或返回当前URL的路径部分
+
+location.pathname
+"/js/js_window_location.asp"
+
+(6) port 设置或返回主机名和当前URL的端口号
+
+(7) protocol 设置或返回当前URL的协议
+
+location.protocol
+"http:"
+
+(8) search 设置或返回从问号(?)开始的URL
+
+2. 方法
+
+1. assign(URL) 加载新的文档
+
+function newDoc(){
+window.location.assign("http://www.baidu.com")
+}
+
+2. reload() 重新加载当前页面
+
+3. replace(newURL) 用新的文档替代当前文档
+
+五 document 文档对象
+
+1. 集合
+
+(1) anchors[] 描点对象数组
+
+(2) images[] 图片对象数组
+
+(3) links[] 连接对象数组
+
+(4) forms[] 表单对象数组
+
+2. 属性
+
+(1) cookie 设置或返回与当前文档有关的所有cookie
+
+(2) domain 返回当前文档的域名
+
+(3) referrer 返回当前文档的文档的URL
+
+(4) title 返回当前文档的标题
+
+(5) URL 返回当前文档的文档的URL
+
+3. 方法
+
+(1) open() 打开一个新的文档，并擦出旧文档的内容
+
+(2) close() 关闭文档输出流
+
+(3) write() 想当前文档追加写入文本
+
+(4) written() 与write相同，在<pre>中追加换行
+
+十一 属性
+
+1. 状态栏
+
+(1) defaultStatus 改变浏览器状态栏的默认提示
+
+(2) status 临时改变浏览器状态栏的显示
+
+2. 窗口位置
+
+(1) IE 浏览器
+
+(1.1) screenLeft 声明窗口的左上角的X光标
+
+screenTop 声明窗口的左上角的Y光标
+
+(1.2) 声明当前文档向右滚动过的像素数
+document.body.scrollLeft
+document.documentElement.scrollLeft
+
+声明当前文档向下滚动过的像素数
+document.body.scrollTop
+document.documentElement.scrollTop
+
+(1.3) 浏览器窗口的内部高度(前两种只针对 8，7，6，5)
+document.body.clientHeight
+document.documentElement.clientHeight
+window.innerHeight
+
+(1.4) 浏览器窗口的内部宽度(前两种只针对 8，7，6，5)
+document.body.clientWidth
+document.documentElement.clientWidth
+window.innerWidth
+
+
+(2) 非IE 浏览器
+
+(2.1) screenX 声明窗口的左上角的X光标
+
+screenY 声明窗口的左上角的Y光标
+
+(2.2) pageXOffset 声明当前文档向右滚动过的像素数
+
+pageYOffset 声明当前文档向下滚动过的像素数
+
+(2.3) 浏览器窗口的内部高度
+window.innerHeight
+
+浏览器窗口的内部宽度
+window.innerWidth
+
+//浏览器窗口的尺寸（浏览器的视口，不包括工具栏和滚动条）。
+var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+var x = document.getElementById('demo');
+x.innerHTML = '宽度是' + w + '高度是' + h
+
+3. 其他属性
+
+(3.1) opener 可以实现同域名下跨窗体之间的通讯
+一个窗体要包含另一个船体的opener
+
+(3.2) closed 当前窗口关闭时返回true
+
+(3.3) name 设置或返回窗口前名称
+
+(3.4) self 返回对当前窗口的引用
+
+ 
+
+ 
+
+</script>

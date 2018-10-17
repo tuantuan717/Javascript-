@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>效果</title>
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<style type="text/css">
+		#hide{
+			width: 300px;
+			height: 300px;
+			background-color: red;
+		}
+		#slideDown{
+			width: 300px;
+			height: 300px;
+			background-color: #eee;
+		}
+	</style>
+</head>
+<body>
+	<p style="display: none">hello world</p>
+	<div id="hide">castle</div>
+	<div id="slideDown">Down</div>
+	<div id="slideUp">up</div>
+
+	<script type="text/javascript">
+
+		$('p').show('4000',function(){
+			$(this).text('animation done!')
+		})
+
+		$('#hide').hide(5000, function(){
+			alert('I will none!')
+		})
+
+		$('#slideDown').click(function(){
+			$(this).slideDown()
+		})
+
+		$("#slideUp").slideUp("slow");
+	</script>
+	
+</body>
+</html>

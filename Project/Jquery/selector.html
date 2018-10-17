@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>选择器</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	.test{
+		width: 100px;
+		height: 100px;
+		background-color: pink;
+	}
+</style>
+<script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+
+<div id="myID">这是ID字段</div>
+<span id="foo:bar">需要特殊转义字符</span>
+
+<p id="p1">p1</p>
+<p id="p2">p2</p>
+
+<div class="cName">classname1</div>
+<div class="no_cName">classname2</div>
+
+<form>
+	<label>这是label标题</label>
+	<input type="text" name="" value="input选择1">
+	<input type="text" name="" value="input选择2" checked="checked">
+	<fieldset>
+		<label>这是labe2标题</label>
+		<input type="text" name="aaa" value="input选择3" checked="checked">
+	</fieldset>
+</form>
+<input type="" name="none">
+
+<ul>
+	<li style="display: none">item1</li>
+	<li>item2</li>
+	<li>item3</li>
+	<li>item4</li>
+	<li>item5</li>
+</ul>
+
+<table>
+	<tr>
+		<td>item1</td>
+	</tr>
+	<tr>
+		<td></td>
+	</tr>
+	<tr>
+		<td>item3</td>
+	</tr>
+</table>
+
+<input type="checkbox" value="1111" name="check">ddd</input>
+<input type="checkbox" value="1112" name="check">hhh</input>
+<input type="checkbox" value="1113" name="check">nnn</input>
+<input type="checkbox" value="1114" name="check">mmm</input>
+<input type="checkbox" value="1115" name="check">fff</input>
+
+<br>
+<br>
+<br>
+
+<input type="radio" value="11" name="radio">11</input>
+<input type="radio" value="12" name="radio">12</input>
+
+<h1>标题一</h1>
+<h2>标题二</h2>
+
+
+<script type="text/javascript">
+
+//-----------------------基本选择器-----------------------
+console.log($("#myID"))
+console.log($("#foo\\[bar\\]"))
+console.log($('p'))
+console.log($('cName'))
+console.log($("*"))
+console.log($('div.cName'))
+console.log($('form input'))
+console.log($('form > input'))
+console.log($('label + input')) 匹配所有紧接在 prev 元素后的 next 元素
+console.log($('form ~ input')) 
+
+//------------------------层级选择器----------------------
+console.log($('li:first'))
+console.log($('li:last'))
+console.log($('tr:even')) 奇数
+console.log($('tr:odd')) 偶数
+console.log($('tr:eq(1)')) 查找第几个
+console.log($('li:gt(0)')) 匹配所有大于给定索引值的元素
+console.log($('li:lt(0)')) 匹配所有小于给定索引值的元素
+console.log($('input:not(:checked)')) 未被选中
+console.log($('input:checkbox:checked')) 复选框未被选中
+console.log($('input:radio:checked')) 单选框选中
+console.log($('input:radio:not(:checked)')) 单选框未被选中
+console.log($(':header').css('background', '#EEE')) 匹配如 h1, h2, h3之类的标题元素
+$(':root').css('background-color','#CCC')
+
+//------------------------内容选择器---------------------------------
+console.log($('p:contains("p1")')) 匹配包含给定文本的元素
+console.log($('td:empty')) 匹配所有不包含子元素或者文本的空元素
+$('ul:has(li)').addClass("test") 匹配含有选择器所匹配的元素的元素
+console.log($('td:parent')) 匹配含有子元素或者文本的元素
+
+//--------------------------可见性--------------------
+console.log($('li:hidden'))匹配所有的不可见元素
+console.log($('li:visible'))匹配所有的可见元素
+
+//-------------------------属性--------------------
+$('div[id]')匹配包含给定属性的元素
+$('input[name='aaa']').attr("checked", true);匹配给定的属性是某个特定值的元素
+$("input[name!='aaa']").attr("checked", true);匹配所有不含有指定的属性，或者属性不等于特定值的元素。
+$("input[name^='news']")匹配给定的属性是以某些值开始的元素
+$("input[name$='letter']")匹配给定的属性是以某些值结尾的元素
+$("input[name*='man']")匹配给定的属性是以包含某些值的元素
+$("input[id][name$='man']")复合属性选择器，需要同时满足多个条件时使用。
+
+
+//------------------------子元素-----------------------------
+$("ul li:first-child")
+$("ul li:last-child")
+$("span:first-of-type");
+$("span:last-of-type");
+$("ul li:nth-child(2)") 匹配其父元素下的第N个子或奇偶元素 这里2 就是代表第二个
+$("ul li:nth-last-child(2)");
+$("ul li:nth-last-of-type(2)");
+$("span:nth-of-type(2)"); 选择同属于一个父元素之下，并且标签名相同的子元素中的第n个。
+$("ul li:only-child")如果某个元素是父元素中唯一的子元素，那将会被匹配
+
+//-------------------表单------------------------
+$(":input")匹配所有 input, textarea, select 和 button 元素
+$(":text")匹配所有的单行文本框
+$(":password")匹配所有密码框
+$(":radio")匹配所有单选按钮
+$(":checkbox")匹配所有复选框
+$(":submit")查找所有提交按钮
+$(":image")匹配所有图像域
+$(":reset")匹配所有重置按钮
+$(":button")匹配所有按钮
+$(":file")匹配所有文件域
+
+//---------------表单对象属性----------------------
+$("input:enabled")查找所有可用的input元素
+$("input:disabled")匹配所有不可用元素
+$("input:checked")查找所有选中的复选框元素
+$("select option:selected")查找所有选中的选项元素
+
+//--------------
+
+</script>
+    
+</body>
+
+</html>

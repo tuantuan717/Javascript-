@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>with</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    
+</body>
+</html>
+<script type="text/javascript">
+	var box = {
+		'name' : 'anna',
+		'work' : 'it'
+	}
+
+	with(box){
+		var n = name;
+		var w  = work;
+		console.log(n); //anna
+		console.log(w); //it
+	}
+</script>

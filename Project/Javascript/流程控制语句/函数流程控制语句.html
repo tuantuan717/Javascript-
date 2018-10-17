@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+菜鸟笔记 -- 函数流程控制语句
+
+一 循环语句
+
+1. while
+
+(1) 语法
+
+while(条件表达式){
+
+循环执行代码段
+
+}
+
+
+(2) 流程
+
+a. 判断条件表达式的值
+
+b. 当值为true时循环执行代码段
+
+c. 当值为false时退出循环体
+
+(3) 特性
+
+a. 先检查条件，再执行循环
+
+b. 条件不满足时则循环一次也不执行
+
+(4) 时机
+
+一个动作被重复执行到满足某个条件时
+
+2. do while
+
+(1) 语法
+do{
+循环执行时的代码段
+}
+while(条件表达式);
+
+(2) 流程
+
+a. 先执行循环体内代码再进行判断
+
+b. 如果表达式的值为true,则重复执行代码段
+
+c. 如果表达式的值为false,则推出循环体
+
+(3) 特性
+
+先执行循环，再进行判断
+循环体内代码至少执行一次
+
+(4) 时机
+
+希望一个动作至少被执行一次时
+
+	var age = 58;
+
+	do{
+		document.write('how are you today?');
+		age++;
+
+	}while( age <= 50 )
+
+	//输出一次 how are you today?
+
+3. for
+
+(1) 语法
+
+for(循环变量 = 初值；循环条件；递增/递减计数器){
+循环代码段
+}
+
+(2) 流程
+
+a. 用循环变量初始值与循环条件相比较，确定返回值
+
+b. 如果返回值为true则执行循环体
+
+c. 执行完一次后进行递增/递减预算
+
+d. 将运算结果与循环条件相比较，如果返回值为true则继续执行循环体，
+如果返回值为false则推出循环体
+
+(3) 时机
+
+重复一个动作到一定次数时
+
+例子：隔行变色
+
+	document.write('<table border="1">');
+
+	var rows = prompt('请输入行数');
+	var clos = prompt('请输入列数');
+
+	//i 代表 行数
+	//j 代表 列数
+	for( var i = 1; i <= rows; i++ ){
+		//通过判断奇偶数来判断隔行变色
+		if( i%2!=0 ){
+			//console.log(i)
+			document.write('<tr class="hd">');
+		}else{
+			document.write('<tr>');
+		}
+
+		for(var j = 1; j <= clos; j++){
+			document.write('<td>'+i+'格子'+j+'</td>');
+		}
+
+		document.write('</tr>');
+	}
+
+	document.write('</table>');
+
+
+
+4. for in
+
+(1) 语法
+for(声明变量in对象){
+代码段
+}
+
+(2) 作用 枚举对象属性
+
+(3) 注意事项
+
+a. 循环输出的属性顺序不可预知
+b. 对象的值不能死null 或 undefined
+
+	var student = {
+		'name' : 'anna',
+		'age' : 18,
+		'work' : 'IT'
+	}
+
+	for(var p in student){
+		console.log(p)
+	}
+
+	var arr  = ['jack','anna','tina','merrry']
+
+	for(var i in arr){
+		console.log(i)
+	}
+
+二 跳转语句
+
+1. return 终止函数体的运行，并返回一个值
+
+2. break 终止整个循环，不再进行判断
+
+	var age = 18;
+
+	while( age <= 50 ){
+		if( age == 25 ){
+
+			break;
+		}
+		document.write(age+"真是如花年纪<br>");
+
+		age++;
+
+	}
+
+3. continue 结束本次循环，接着去判断是否执行下次循环
+
+	var age = 18;
+
+	while( age <= 50 ){
+		if( age == 25 ){
+
+			age++;
+			continue; //跳出本次循环，直接诶进入到下次循环
+		}
+		document.write(age+"真是如花年纪<br>");
+
+		age++;
+
+	}
+
+三 选择语句
+
+1. if
+
+(1) 语句
+if(条件表达式1){
+代码段1
+}else if(条件表达式2){
+代码段2
+}else{
+代码段3
+}
+
+(2) 流程
+
+a. 判断条件1， 如果返回值为true则执行代码段1
+
+b. 如果条件1的返回值为false则跳过语句块1并检测条件2
+
+c. 如果所有表达式的值为false则执行else后面的语句
+
+(3) 特性
+
+a. 结构复杂，可探讨测试多个条件表达式
+
+b. 可测试多个条件表达式
+
+c. 表达式的值是动态的
+
+d. 适用于任意类型的数据
+
+e. 可处理复杂的逻辑关系
+
+
+2. switch
+
+(1) 语法
+
+switch(条件表达式){
+case 标签1;
+break;
+......
+default;
+代码段n;
+}
+
+(2) 流程
+
+a. 计算表达式的值，并于个标签相比较
+
+b. 若找到与之匹配的标签，则执行其后的代码段
+
+c. 若没有找到与之匹配的标签则直接执行default之后的代码段
+
+(3) 格式
+
+case标签为常量，可以是字符串或数字
+
+每个标签均以冒号:为结束
+
+虽然break与default 为可选项，但为了逻辑清晰最好不要省略
+
+case标签的值必须和条件表达式的值完全匹配
+
+(4) 特性
+
+结构简介，专为多重选择设计
+
+仅可测试一条条件表达式
+
+表达式的值具有离散性
+
+表达式的值是固定的，不会动态变化的
+
+仅能应用整数，枚举，字符串等类型数据
+
+仅能处理多个枚举型逻辑关系
+
+var Blue = "blue";
+var Red  = "red";
+var White = "white";
+
+var getColor = "red";
+
+switch(getColor){
+	case Blue: alert('blue');
+	break;
+	case Red: alert('red');
+	break;
+	case White: alert('white');
+	break;
+	default: alert("other");
+} 
+
+3. with 语句
+
+将代码的作用域设置到一个特定的对象中
+
+	var box = {
+		'name' : 'anna',
+		'work' : 'it'
+	}
+
+	with(box){
+		var n = name;
+		var w  = work;
+		console.log(n); //anna
+		console.log(w); //it
+	}
+
+
+四 异常处理语句
+
+1. throw 主动抛出异常
+
+2. try 指明需要处理的代码段
+
+3. catch 捕获异常
+
+4. finally 后期处理
+
+</script>

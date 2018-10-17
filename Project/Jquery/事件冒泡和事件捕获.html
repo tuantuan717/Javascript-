@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件冒泡和事件捕獲</title>
+</head>
+<body>
+
+<ul id="colorList">
+	<li>color1</li>
+	<li>color2</li>
+	<li>color3</li>
+	<li>color4</li>
+	<li>color5</li>
+</ul>
+
+	
+<script type="text/javascript">
+//e.target和e.currentTarget
+
+//target和currentTarget都是event上面的属性，target是真正发生事件的DOM元素，而currentTarget是当前事件发生在哪个DOM元素上。
+
+
+/*
+ * 平常使用方法
+(function(){
+	var color_list = document.getElementById('colorList');
+	var colors = color_list.getElementsByTagName('li');
+
+	for (var i = 0; i < colors.length; i++) {
+		colors[i].addEventListener('click', showColor, false)
+	}
+
+	function showColor(e){
+		var x = e.target;
+		alert('显示的颜色是'+ x.innerHTML)
+	}
+})()
+
+*/
+
+
+
+//利用事件流的特性，我们只绑定一个事件处理函数也可以完成：
+
+(function(){
+	var color_list = document.getElementById('colorList');
+	color_list.addEventListener('click', showColor, false)
+
+	function showColor(e){
+		var x = e.target;
+		if(x.nodeName.toLowerCase() === 'li'){
+			alert('显示的颜色是'+ x.innerHTML)
+		}
+	}	
+})()
+
+</script>
+</body>
+</html>

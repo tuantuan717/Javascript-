@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>值类型</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    
+</body>
+</html>
+<script type="text/javascript">
+
+//（1）值类型理解：变量的交换等于在一个新的地方按照连锁店的规范标准（统一店面理解为相同的变量内容）新开一个分店，这样新开的店与其它旧店互不相关、各自运营。
+
+	function chainStore(){
+		var store1 = "Nike China";
+		var store2 = store1;
+		store1 = "Nike USA";
+		console.log(store2)
+		console.log(store1)
+	}
+
+	chainStore()
+	// store2 Nike China 
+	// store1 Nike USA
+
+//(2) 引用类型理解：变量的交换等于把现有一间店的钥匙（变量引用地址）复制一把给了另外一个老板，此时两个老板同时管理一间店，两个老板的行为都有可能对一间店的运营造成影响。 
+
+	function chainStoreKey(){
+		var store1 = ["Nike china"];
+		var store2 = store1;
+		store1[0] = ["Nike USA"];
+		console.log(store2[0])
+		console.log(store1[0])
+	}
+
+	chainStoreKey();
+
+	//Array [ "Nike USA" ]
+	//Array [ "Nike USA" ]
+
+
+
+
+//值类型
+
+function add(num){
+
+	num += 10;
+	console.log(num)
+}
+
+var count  = 20;
+add(count)//30
+console.log(count)//20
+
+//引用类型
+
+function setName(obj){
+	obj.name = "anna"
+}
+
+var person = new Object();
+setName(person)
+console.log(person.name)//anna
+
+//-----------------------------
+
+function changeName(obj){
+	obj.name = "Nico";
+	obj = new Object();//改变obj的指向，此时obj指向一个新的内存地址，不再和person指向同一个
+	obj.name = "Jack;"
+}
+
+var people = new Object();
+changeName(people);
+console.log(people.name)//Nico 证明对象也是按值传递的
+
+
+
+</script>

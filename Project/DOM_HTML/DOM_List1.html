@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<div id="parent">
+		<p class="child">hhhh</p>
+		<p class="child2"></p>
+
+	</div>
+	<div>
+		<input type="button" name="" value="write a new document" onclick="createNewDoc()">
+	</div>
+
+    
+</body>
+</html>
+
+<script type="text/javascript">
+	var x = document.getElementById('parent')
+	//console.log(x)
+
+	var y = document.getElementsByTagName('p')
+	//console.log(y)
+
+	//console.log(document.documentElement)
+
+	//console.log(document.cookie)
+
+
+/*	
+ ** 调用 open() 方法打开一个新文档并且用 write() 方法设置文档内容后，必须记住用 close 方法关闭文档，并迫使其内容显示出来。
+function createNewDoc(){
+		var newDoc = document.open('text/html', 'replace');
+		var txt = "<html><body>jjjjjjjjjjjj</body></html>";
+		newDoc.write(txt);
+		newDoc.close();
+}*/
+
+</script>
+

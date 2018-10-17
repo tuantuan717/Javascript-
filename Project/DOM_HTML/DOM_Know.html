@@ -1,0 +1,203 @@
+菜鸟笔记---DOM基本操作
+
+
+在 HTML DOM （文档对象模型 Document Object Model）中，每个部分都是节点：
+
+文档本身是文档节点           Document_Node
+所有 HTML 元素是元素节点     Element_Node
+所有 HTML 属性是属性节点     Attribute_Node
+HTML 元素内的文本是文本节点  Text_Node
+注释是注释节点               Comment_node
+
+
+Element 对象
+在 HTML DOM 中，Element 对象表示 HTML 元素。
+Element 对象可以拥有类型为元素节点、文本节点、注释节点的子节点。
+NodeList 对象表示节点列表，比如 HTML 元素的子节点集合。
+
+Node 与 Element 的区别：
+简单的说就是Node是一个基类，DOM中的Element，Text和Comment都继承于它。
+换句话说，Element，Text和Comment是三种特殊的Node，它们分别叫做ELEMENT_NODE,
+TEXT_NODE和COMMENT_NODE。
+**所以我们平时使用的html上的元素，即Element是类型为ELEMENT_NODE的Node。
+
+详情请看：https://www.jianshu.com/p/695b5c78a7ca
+
+
+
+一 获取节点
+
+1. document 
+
+(1) getElementById
+
+语法：document.getElementById(元素ID)
+功能：通过元素ID获取节点
+
+(2) getElementsByName
+
+语法： document.getElementByName(元素name属性)
+功能： 通过元素的name属性获取节点
+
+(3) getElementsByTagName
+
+语法： document.getElementsByTagName(元素标签)
+功能： 通过元素标签获取节点
+
+(4) getElementsByClassName
+
+语法： document.getElementsByClassName(元素class名)
+功能： 通过class获取节点
+
+2. 节点指针
+
+(1) firstChild
+
+语法： 父节点.firstChild
+功能： 获取元素的首个子节点
+
+(2) lastChild
+
+语法： 父节点.lastChild
+功能：获取元素的最后一个子节点
+
+(3) childNodes
+
+语法：父节点.childNodes
+功能：获取元素的子节点列表
+
+(4) previousSibling
+
+语法：兄弟节点.previousSibling
+功能：获取已知节点的前一个节点
+
+(5) nextSibling
+
+语法：兄弟节点.previousSibling
+功能：获取已知节点的后一个节点
+
+(6) parentNode
+
+语法：子节点.parentNode
+功能：获取已知节点的父节点
+
+二 节点操作
+
+1. 创建节点
+
+(1) createElement
+
+语法：document.createElement(元素标签)
+功能：创建元素节点
+
+(2) createAttribute
+
+语法：document.createAttribute(元素属性)
+功能：创建属性节点
+
+(3) createTextNode
+
+语法：document.createTextNode(文本内容)
+功能：创建文本节点
+
+2. 插入节点
+
+(1) appendChild
+
+语法：appendChild(所添加的新节点)
+功能：向节点的子节点列表的末尾添加新的子节点
+
+(2) insertBefore
+
+语法：insertBefore(所要添加的新节点，已知子节点)
+功能：在已知的子节点前插入一个新的子节点
+
+3. 替换节点
+
+(1) replaceChild
+
+语法：要插入的新元素，将被替换的老元素
+功能：将某个子节点替换为另一个
+
+4. 复制节点
+
+(1) cloneNode
+
+语法：需要将被复制的节点.cloneNode(true/false)
+功能：创造指定节点的副本
+参数：true --- 复制当前节点及其所有子节点
+	  false --- 仅复制当前节点
+
+5.删除节点 
+
+(1) removeChild
+
+语法: removeChild(要删除的节点)
+功能： 删除指定的节点
+
+注意：
+
+从父元素中删除子元素：parent.removeChild(child);
+
+能否在不引用父元素的情况下删除某个元素？
+
+很抱歉。DOM 需要了解您需要删除的元素，以及它的父元素。
+
+这里提供一个常用的解决方法：找到您需要删除的子元素，然后使用 parentNode 属性来查找其父元素：
+
+var child=document.getElementById("p1");
+child.parentNode.removeChild(child);
+
+
+
+三 属性操作
+
+1. 获取属性
+
+getAttribute
+
+语法： 元素节点.getAttribute(元素属性名)
+功能： 获取元素节点中指定属性的属性值
+
+2. 设置属性
+
+setAttribute
+
+语法：元素节点.setAttribute(属性名.属性值)
+功能：创建或改变元素节点的属性
+
+3.删除属性
+
+removeAttribute
+
+语法：元素节点.removeAttribute(属性名)
+功能：删除元素中的指定
+
+四 文本操作
+
+1. insertData(offset, String) // 从offset指定的位置插入string
+
+2. appendData(string) //将string插入到文本节点的末尾处
+
+3. deleteDate(offset, count) //从offset起删除count个字符
+
+4. replaceData(offset, count, string) //从offset将count个字符用string替代
+
+5. splitData(offset) //从offset 起降文本节点分成两个节点
+
+6. substring(offset,count) //从offset起的count个节点
+
+
+五. HTML DOM 事件
+
+HTML 事件的例子：
+
+    当用户点击鼠标时
+    当网页已加载时
+    当图片已加载时
+    当鼠标移动到元素上时
+    当输入字段被改变时
+    当 HTML 表单被提交时
+    当用户触发按键时
+
+    

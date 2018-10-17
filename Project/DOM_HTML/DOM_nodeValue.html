@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<div id="dd">
+		<p id="intro">jjjjjjjjjjj</p>
+    
+	</div>
+	
+</body>
+</html>
+<script type="text/javascript">
+	var x = document.getElementById('intro');
+
+
+//	document.write(x.firstChild.nodeValue)
+    var para = document.createElement('P');
+    var nodenew = document.createTextNode('hhhhhh');
+    para.appendChild(nodenew);
+
+    var ele = document.getElementById("dd");
+    var p1 = document.getElementById('intro');
+    //ele.appendChild(para)
+    //ele.insertBefore(para, p1)
+    //ele.removeChild(p1);
+    ele.replaceChild(para, p1)
+
+</script>

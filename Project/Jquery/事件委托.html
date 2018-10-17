@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托</title>
+</head>
+<body>
+
+	<ul id="pp">
+		<li>child11</li>
+		<li>child12</li>
+		<li>child13</li>
+		<li>child14</li>
+		<li>child15</li>
+	</ul>
+
+	<button onclick="add()">添加</button>
+
+	<script type="text/javascript">
+
+	/*
+	 * 普通方法
+
+		var ppList = document.getElementById('pp');
+		var cList = ppList.getElementsByTagName('li');
+
+		for (var i = 0; i < cList.length; i++) {
+			cList[i].onclick = show
+		}
+
+		function show(){
+			console.log(this.innerText)
+		}
+
+		function add(){
+			var node = document.createElement('li');
+			var textNode = document.createTextNode('New child');
+			node.appendChild(textNode);
+			
+			ppList.appendChild(node);
+
+		}	 
+
+	*/
+
+	/*
+	 * 事件委托 方法
+
+	 事件委托还有一个好处就是添加进来的元素也能绑定事件：
+
+	*/
+
+	var ppList = document.getElementById('pp');
+	ppList.onclick = function(ev){
+		ev = ev || event;// IE 兼容处理
+		var  target = ev.target || ev.srcElement;
+		if(target.nodeName.toLowerCase() === 'li'){
+			console.log(target.innerHTML)
+		}
+
+	} 
+
+	function add(){
+		var node = document.createElement('li');
+		var textNode = document.createTextNode('New child');
+		node.appendChild(textNode);
+		
+		ppList.appendChild(node);
+
+	}
+
+	</script>
+	
+</body>
+</html>

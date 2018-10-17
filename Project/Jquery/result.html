@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title>event.result 显示前一个事件处理函数的返回值。</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+      <button>display event.result</button>
+      <p></p>
+      <script>
+       $("button").click(function(event) {    return "hey";  });
+       $("button").click(function(event) {
+           $("p").html( event.result );
+       });
+    </script>
+    </body>
+  </html

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>光标的坐标是？</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body onmousedown="showcodes(event)">
+	<p>请在文档中点击。一个消息框会提示出鼠标指针的 x 和 y 坐标。</p>
+    
+</body>
+</html>
+<script type="text/javascript">
+	function showcodes(event){
+		var x = event.clientX;
+		var y = event.clientY;
+		var sx = event.screenX;
+		var sy = event.screenY;
+		console.log('x 的坐标是' +x+', y的坐标是'+y);
+		console.log('相较于屏幕 x的坐标是' +x+', y的坐标是'+y);
+	}
+
+</script>
